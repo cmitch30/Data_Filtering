@@ -22,9 +22,11 @@ function showPage(list, page) {
   studentList.innerHTML = "";
 
   for (let i = 0; i < list.length; i++) {
+   //set i to variable for clarity
     let student = list[i];
     
     if (i >= startIndex && i < endIndex) {
+      //add items to studentItem using literal
        const studentItem = `<li class ="student-item cf">
        <div class="student-details">
        <img class="avatar" src="${student["picture"].large}" alt="Profile Picture">
@@ -58,7 +60,7 @@ function addPagination(list) {
       linkList.insertAdjacentHTML("beforeend", button)
    }
    document.querySelector('button').className='active'
-   
+
 // add event listener to linklist
    linkList.addEventListener('click', (e) => {
       if(e.target.tagName === 'BUTTON') {
