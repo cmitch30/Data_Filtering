@@ -71,6 +71,17 @@ function addPagination(list) {
    })
 }
 
+function searchName() {
+   const header = document.querySelector('.header')
+   const search = `<label for="search" class="student-search">
+   <span>Search by name</span>
+   <input id="search" placeholder="search by name...">
+   <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+   </label>`;
+   header.insertAdjacentHTML("beforeend", search)
+}
+
 // Call functions
 addPagination(data)
 showPage(data, 1)
+searchName()
