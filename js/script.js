@@ -71,9 +71,10 @@ function addPagination(list) {
    })
 }
 
+
+
 function searchName() {
    const header = document.querySelector('.header')
-   // const searchBar = document.querySelector('#search')
    const search = `<label for="search" class="student-search">
    <span>Search by name</span>
    <input id="search" placeholder="search by name...">
@@ -81,11 +82,25 @@ function searchName() {
    </label>`;
    header.insertAdjacentHTML("beforeend", search)
 
-   // searchBar.addEventListener('input', (e) => {
-   //    const value = e.target.value
-   //    console.log(value)
-   // })
+   const searchBar = document.querySelector("#search");
+   const students = document.getElementsByClassName("student-item cf");
+   searchBar.addEventListener('keyup', (e) => {
+      const {value} = e.target
+      const searchQ = value.toLowerCase()
+       for (const nameElement of students) {
+        // store name text and convert to lowercase
+        let name = nameElement.textContent.toLowerCase();
+               if (name.includes(searchQ)) {
+                 // found name matching search, display it
+                 nameElement.style.display = "block";
+               } else {
+                 // no match, don't display name
+                 nameElement.style.display = "none";
+               }
+       }
+   })
 }
+
 
 // Call functions
 addPagination(data)
